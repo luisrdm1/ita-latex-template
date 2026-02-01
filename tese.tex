@@ -193,8 +193,10 @@
 \acsetup{
   pages/display = all,
   pages/fill = {.\dotfill},
-  list/heading = chapter*,
-  list/name = Lista de Abreviaturas,
+  pages/seq/use = false,
+  list/heading = none,
+  list/name = Lista de Abreviaturas e Siglas,
+  list/preamble = {\chapter*{Lista de Abreviaturas e Siglas}\pdfbookmark[0]{Lista de Abreviaturas e Siglas}{acronyms}},
 }
 \input{PreTextuais/abreviaturas}
 
