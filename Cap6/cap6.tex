@@ -33,20 +33,26 @@ A versão final da dissertação ou tese será entregue \textbf{exclusivamente e
     \end{itemize}
 \end{enumerate}
 
-\subsection{Ferramentas aceitas (exemplos)}
+\subsection{Ferramentas recomendadas}
 
-São aceitas ferramentas que permitam gerar e editar PDF \textbf{localmente} (sem \textit{upload}), incluindo, por exemplo:
+São recomendadas ferramentas que permitam gerar e editar PDF \textbf{localmente} (sem \textit{upload}), sobretudo quando o documento contiver dados pessoais ou informações sensíveis. A Tabela~\ref{tab:ferramentas-pdf} lista opções de \ac{FOSS} e freeware, com interfaces \ac{GUI} ou \ac{CLI}.
 
-\begin{itemize}
-    \item \textbf{Freeware (\ac{GUI})}: PDF24 Creator (Windows).
-    \item \textbf{\ac{FOSS} (\ac{GUI} local / auto-hospedável)}: Stirling PDF (uso local).
-    \item \textbf{\ac{FOSS} (\ac{CLI} / multiplataforma)}: \texttt{qpdf}, \texttt{pdftk} (ou \texttt{pdftk-java}).
-    \item \textbf{Assinatura digital (freeware/\ac{FOSS})}: JSignPdf (Java).
-\end{itemize}
-
-\begin{quote}
-Recomenda-se priorizar ferramentas locais/offline, sobretudo quando o documento contiver dados pessoais ou informações sensíveis.
-\end{quote}
+\begin{table}[H]
+  \centering
+  \caption{Ferramentas recomendadas para manipulação de PDF.}
+  \label{tab:ferramentas-pdf}
+  \begin{tabular}{lllll}
+    \toprule
+    \textbf{Ferramenta} & \textbf{Licença} & \textbf{Interface} & \textbf{Plataforma} & \textbf{Uso} \\
+    \midrule
+    PDF24 Creator & Freeware & \ac{GUI} & Windows & Edição, mesclagem \\
+    Stirling PDF & \ac{FOSS} & \ac{GUI} & Multi & Edição geral \\
+    \texttt{qpdf} & \ac{FOSS} & \ac{CLI} & Multi & Criptografia \\
+    \texttt{pdftk} & \ac{FOSS} & \ac{CLI} & Multi & Mesclagem \\
+    JSignPdf & \ac{FOSS} & \ac{GUI} & Multi & Assinatura digital \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \subsection{Nome do arquivo}
 
