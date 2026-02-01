@@ -1,5 +1,7 @@
 # Template ITA - Dissertações e Teses
 
+[![Open in Overleaf](https://img.shields.io/badge/Open%20in-Overleaf-47A141?logo=overleaf&logoColor=white)](https://www.overleaf.com/docs?snip_uri=https://github.com/luisrdm1/ita-latex-template/archive/refs/heads/template.zip)
+
 Template LaTeX para dissertações e teses do Instituto Tecnológico de Aeronáutica (ITA), em conformidade com as normas ABNT.
 
 ## Como Usar
