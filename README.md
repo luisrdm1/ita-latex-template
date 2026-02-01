@@ -28,18 +28,34 @@ Template LaTeX para dissertações e teses do Instituto Tecnológico de Aeronáu
 
 ## Compilação
 
-Requer uma distribuição LaTeX com `pdflatex` e `biber`.
+### Requisitos
+
+- Distribuição LaTeX com `pdflatex` e `biber` (ex: [MiKTeX](https://miktex.org/), [TeX Live](https://tug.org/texlive/))
+- [Perl](https://strawberryperl.com/) — necessário para o `latexmk` (no Windows, instale o Strawberry Perl)
+
+### Linha de comando (Makefile)
 
 ```bash
 make pdf        # Compila o PDF (target/tese.pdf)
 make clean      # Remove arquivos temporários
+make watch      # Recompila automaticamente ao salvar
 ```
 
-Ou manualmente:
+### Alternativas (sem linha de comando)
+
+Se preferir não usar o terminal, configure seu editor:
+
+- **[TeXstudio](https://www.texstudio.org/)** — abra `tese.tex` e compile com F5. Configure o diretório de saída em *Opções > Configurar TeXstudio > Comandos > Adicionar `--output-directory=target`*.
+
+- **[VS Code](https://code.visualstudio.com/) + [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)** — instale a extensão, abra a pasta do projeto e salve qualquer `.tex` para compilar automaticamente.
+
+### Compilação manual
+
+Sem `make` ou editor, execute na ordem:
+
 ```bash
 pdflatex -output-directory=target tese.tex
 biber --input-directory=target --output-directory=target tese
-pdflatex -output-directory=target tese.tex
 pdflatex -output-directory=target tese.tex
 pdflatex -output-directory=target tese.tex
 ```
