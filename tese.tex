@@ -1,0 +1,336 @@
+%%% Template ITA - Dissertação/Tese
+%%%
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% Para alterar o TIPO DE DOCUMENTO, preencher a linha abaixo \documentclass[?]{?}
+%   \documentclass[tg]{ita}			= Trabalho de Graduacao
+%   \documentclass[tgfem]{ita}	= Para Engenheiras
+%   								msc     		= Dissertacao de Mestrado
+%   								mscfem   		= Para Mestras
+%   								dsc      		= Tese de Doutorado
+%   								dscfem   		= Para Doutoras
+%   								quali    		= Exame de Qualificacao
+%   								qualifem 		= Exame de Qualificacao para Doutoras
+% Para 'Draft Version'/'Versao Preliminar' com data no rodape, adicionar 'dv':
+%   \documentclass[dsc, dv]{ita}
+% Para trabalhos em Inglês, adicionar 'eng':
+%   \documentclass[dsc, eng]{ita}
+%		\documentclass[dsc, eng, dv]{ita}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\documentclass[msc]{ita}    % ITA.cls based on standard book.cls
+% Quando alterar a classe, por exemplo de [msc] para [msc, eng]) rode mais uma vez o botão BUILD OUTPUT caso haja erro
+
+% Comando para marcar campos a preencher (remover \placeholder ao preencher)
+\definecolor{PHREDD}{rgb}{1,0,0}
+\newcommand{\placeholder}[1]{{\color{PHREDD}#1}}
+
+% Comando para exibir fullcite alinhado à esquerda (como nas referências)
+\newcommand{\fullciteblock}[1]{%
+  \begin{flushleft}
+    \fullcite{#1}
+  \end{flushleft}
+}
+
+% Código do tipo de documento para a Folha de Registro (DM, TG, TD)
+\newcommand{\itadoccode}{%
+  \ifdefstring{\itaoptionlevel}{msc}{DM}{%
+  \ifdefstring{\itaoptionlevel}{mscfem}{DM}{%
+  \ifdefstring{\itaoptionlevel}{tg}{TG}{%
+  \ifdefstring{\itaoptionlevel}{tgfem}{TG}{%
+  \ifdefstring{\itaoptionlevel}{dsc}{TD}{%
+  \ifdefstring{\itaoptionlevel}{dscfem}{TD}{%
+  \ifdefstring{\itaoptionlevel}{quali}{TD}{%
+  \ifdefstring{\itaoptionlevel}{qualifem}{TD}{XX}}}}}}}}%
+}
+
+\usepackage{textcomp}    % símbolos e melhor cópia/colagem no PDF
+\usepackage{sourcecodepro} % fonte monoespaçada Adobe (substitui CM Typewriter)
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{url}         % formats URL addresses properly
+\renewcommand{\UrlFont}{\ttfamily\footnotesize} % URL em tamanho menor
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,shapes.geometric,positioning}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Compatibilidade: algumas entradas ABNT podem usar \htmladdnormallink
+\providecommand{\htmladdnormallink}[2]{\href{#2}{#1}}
+\providecommand{\htmladdnormallinkfoot}[2]{\href{#2}{#1}}
+
+\usepackage{appendix}    % allows appendix section to be included
+\usepackage{lscape}      % allows a page to be rendered in landscape mode
+\usepackage{multicol}    % allows text in multi columns
+\usepackage{cancel}      % needed to show canceled terms in equations
+\usepackage{lettrine}
+\usepackage{float}
+\usepackage{placeins}
+
+% Better verbatim
+\usepackage{fancyvrb}
+\usepackage{fvextra}
+
+% csquotes must be loaded after fvextra to avoid lineno warning
+\usepackage{csquotes}
+\MakeOuterQuote{"}  % Converte "texto" em aspas tipográficas
+
+% Better abnt
+% backend=biber
+% style=abnt: Carrega as normas da ABNT (NBR 6023)
+\usepackage[backend=biber, style=abnt, backref=true, giveninits=true]{biblatex}
+
+% Coloca "apud" em itálico - redefine a macro diretamente
+\AtBeginDocument{%
+  \renewcommand{\addapud}{%
+    \renewcommand*{\compcitedelim}{%
+      \ifnumequal{\value{multicitecount}}{\value{multicitetotal}}%
+        {\space\textit{apud}}%
+        {\addsemicolon}%
+      \space}%
+    \renewcommand*{\multicitedelim}{%
+      \ifnumequal{\value{multicitecount}}{\value{multicitetotal}}%
+        {\space\textit{apud}}%
+        {\addsemicolon}%
+      \space}%
+    \renewcommand*{\textcitedelim}{%
+      \ifnumequal{\value{multicitecount}}{\value{multicitetotal}}%
+        {\addspace\textit{apud}}%
+        {\addsemicolon}%
+      \space}%
+  }%
+}
+
+% Redefine macro booktitle: usa titlecase para inproceedings, comportamento original para outros
+\renewbibmacro*{booktitle}{%
+  \ifboolexpr{%
+    test {\iffieldundef{booktitle}}%
+    and%
+    test {\iffieldundef{booksubtitle}}%
+  }%
+    {}%
+    {\printtext[booktitle]{%
+      \ifentrytype{inproceedings}%
+        {\printfield[titlecase]{booktitle}\normalfont{ [\ldots].}}%  % inproceedings: titlecase + [...].
+        {\usebibmacro{booktitleiskey}{%       % outros: comportamento ABNT original
+          \printfield[upperfirst]{booktitle}%
+        }{%
+          \printfield[titlecase]{booktitle}%
+        }}%
+      \iffieldendswithpunct{booktitle}{%
+        \normalfont{\setunit*{\addspace}}%
+      }{%
+        \normalfont{\setunit*{\subtitlepunct}}%
+      }%
+      \printfield[normalfont]{booksubtitle}}%
+    \newunit}%
+  \printfield{booktitleaddon}%
+}
+% =============================================================================
+% Campos customizados para patentes ABNT (NBR 6023:2018)
+% Ordem: Inventor. Título. Depositante. Procurador. Número. Depósito. Concessão.
+% =============================================================================
+% Mapeamento: nomes amigáveis → campos internos
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \pertype{patent}
+      \step[fieldsource=depositante, fieldtarget=usera]
+      \step[fieldsource=procurador, fieldtarget=userb]
+      \step[fieldsource=deposito, fieldtarget=userc]
+      \step[fieldsource=concessao, fieldtarget=userd]
+    }
+  }
+}
+% Formatos de saída
+\DeclareFieldFormat[patent]{usera}{Depositante\addcolon\addspace #1}
+\DeclareFieldFormat[patent]{userb}{Procurador\addcolon\addspace #1}
+\DeclareFieldFormat[patent]{userc}{Depósito\addcolon\addspace #1}
+\DeclareFieldFormat[patent]{userd}{Concessão\addcolon\addspace #1}
+
+% Redefine driver de patente para ordem ABNT
+\DeclareBibliographyDriver{patent}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor+others}%
+  \setunit{\labelnamepunct}%
+  \usebibmacro{title}%
+  \setunit{\addperiod\addspace}%
+  \printfield{usera}%
+  \setunit{\addperiod\addspace}%
+  \printfield{userb}%
+  \setunit{\addperiod\addspace}%
+  \printfield{number}%
+  \setunit{\addperiod\addspace}%
+  \printfield{userc}%
+  \setunit{\addperiod\addspace}%
+  \printfield{userd}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}%
+}
+
+% Adicione seu arquivo .bib
+\addbibresource{Referencias/referencias.bib}
+
+
+
+
+% Listas conforme ABNT NBR 6024
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\alph*)}  % alíneas: a) b) c)
+\setlist[enumerate,2]{label=--}       % subalíneas: travessão
+\setlist[itemize]{label=--}           % itemize também usa travessão
+
+\usepackage{booktabs}
+
+% Acrônimos automáticos com backref de páginas
+\usepackage{acro}
+\acsetup{
+  pages/display = all,
+  pages/fill = {.\dotfill},
+  list/heading = chapter*,
+  list/name = Lista de Abreviaturas,
+}
+\input{PreTextuais/abreviaturas}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% Espaçamento padrão de todo o documento
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\onehalfspacing
+
+%singlespacing Para um espaçamento simples
+%onehalfspacing Para um espaçamento de 1,5
+%doublespacing Para um espaçamento duplo
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% Identificacoes (se o trabalho for em inglês, insira os dados em inglês)
+% Para entradas abreviadas de Professora (Profa.) em português escreva: Prof$^\textnormal{a}$.
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\course{\placeholder{Engenharia Aeronáutica e Mecânica}}  % Programa de PG ou Curso de Graduação
+\area{\placeholder{Área de Concentração}} % Área de concentração na PG (Não utilizado no caso de TG)
+
+% Autor do trabalho: Nome Sobrenome
+\authorgender{masc}                     %sexo: masc ou fem
+\author{Nome}{Sobrenome}
+\itaauthoraddress{\placeholder{Rua, número}}{\placeholder{CEP}}{São José dos Campos--SP}
+
+% Titulo da Tese/Dissertação
+\title{Título do Trabalho}
+
+% Orientador
+\advisorgender{masc}                    % masc ou fem
+\advisor{Prof.~Dr.}{\placeholder{Nome do Orientador}}{ITA}
+
+% Coorientador (Caso não haja coorientador, colocar ambas as variáveis \coadvisorgender e \coadvisor comentadas, com um % na frente)
+\coadvisorgender{fem}									% masc ou fem
+\coadvisor[Coorientadora]{Prof$^\textnormal{a}$.~Dr$^\textnormal{a}$.}{\placeholder{Nome da Coorientadora}}{ITA}
+
+% Pró-reitor da Pós-graduação (opcional - comentar para não aparecer na folha de rosto)
+% \bossgender{masc}												% masc ou fem
+% \boss{Prof.~Dr.}{\placeholder{Nome do Pró-Reitor}}
+
+%Coordenador do curso no caso de TG
+\bosscoursegender{masc}									% masc ou fem
+\bosscourse{Prof.~Dr.}{\placeholder{Nome do Coordenador}}
+
+% Palavras-Chaves informadas pela Biblioteca -> utilizada na CIP
+\kwcip{\placeholder{Palavra-chave 1}}
+\kwcip{\placeholder{Palavra-chave 2}}
+\kwcip{\placeholder{Palavra-chave 3}}
+
+% membros da banca examinadora
+
+\examiner{Prof. Dr.}{\placeholder{Membro da Banca 1}}{Presidente}{ITA}
+\examiner{Prof. Dr.}{\placeholder{Membro da Banca 2}}{}{\placeholder{Instituição}}
+\examiner{Prof. Dr.}{\placeholder{Membro da Banca 3}}{}{\placeholder{Instituição}}
+% \examiner{Prof. Dr.}{\placeholder{Membro da Banca 4}}{}{\placeholder{Instituição}}
+% \examiner{Prof. Dr.}{\placeholder{Membro da Banca 5}}{}{\placeholder{Instituição}}
+
+% Data da defesa: \date{dia}{mês}{ano}
+% Mês em maiúsculo se trabalho em inglês (March), minúsculo se português (março)
+% Exemplo: \date{15}{março}{2026}
+\date{\placeholder{dia}}{\placeholder{mês}}{\placeholder{ano}}
+
+% Número CDU - (somente para TG)
+\cdu{???.??}
+
+% Glossario
+%\makeglossary
+\frontmatter
+
+\begin{document}
+\input{PreTextuais/main}
+
+\mainmatter
+% Os capitulos comecam aqui
+
+\chapter{Introdução}
+\input{Cap1/cap1}
+
+\chapter{Revisão Bibliográfica}
+\input{Cap2/cap2}
+
+\chapter{Metodologia}
+\input{Cap3/cap3}
+% \chapter{Controle Robusto de Concretos Caóticos}
+% \input{Cap3/cap3_old}
+\chapter{Resultados}
+\input{Cap4/cap4}
+
+\chapter{Citação e Referências}
+\input{Cap5/cap5}
+
+\chapter{Confecção da Versão em Mídia Digital}
+\input{Cap6/cap6}
+
+\chapter{Preenchimento da Folha de Registro}
+\input{Cap7/cap7}
+
+\chapter{Conclusão}
+\input{Cap8/cap8}
+
+% REFERENCIAS BIBLIOGRAFICAS
+\renewcommand\bibname{\itareferencesnamebabel} %renomear título do capítulo referências
+\typeout{Current Refsection: \the\value{refsection}}
+\printbibliography[heading=bibintoc]
+
+
+% Apendices
+\appendix
+\chapter{Tópicos de Dilema Linear} %opcional
+\input{ApeA/apendiceA}
+
+% Anexos
+\annex
+\chapter{Exemplo de um Primeiro Anexo} %opcional
+\input{AneA/anexoA}
+
+% Glossario
+%\itaglossary
+%\printglossary
+
+% Folha de Registro do Documento
+% Valores dos campos do formulario
+\FRDitadata{\today} % Data de publicação (automática ou preencher manualmente)
+\FRDitadocnro{DCTA/ITA/\itadoccode-000/2026} % Solicitar número à biblioteca
+\FRDitaorgaointerno{Instituto Tecnológico de Aeronáutica -- ITA}
+\FRDitapalavrasautor{Palavra1; Palavra2; Palavra3} % Palavras-chave sugeridas pelo autor
+\FRDitapalavrasresult{Palavra1; Palavra2; Palavra3} % Palavras-chave resultantes da indexação
+%Exemplo no caso de graduação (TG):
+%\FRDitapalavraapresentacao{Trabalho de Graduação, ITA, São José dos Campos, 2015. \NumPenultimaPagina\ páginas.}
+%Exemplo no caso de pós-graduação (msc, dsc):
+\FRDitapalavraapresentacao{ITA, São José dos Campos. Curso de Mestrado. Programa de Pós-Graduação em Engenharia Aeronáutica e Mecânica. Área de Concentração. Orientador: Prof.~Dr. Nome do Orientador. Coorientadora: Prof$^\textnormal{a}$.~Dr$^\textnormal{a}$. Nome da Coorientadora. Defesa em DD/MM/AAAA. Publicada em DD/MM/AAAA.}
+\FRDitaresumo{\input{PreTextuais/resumo}}
+%  Primeiro Parametro: Nacional ou Internacional -- N/I
+%  Segundo parametro: Ostensivo, Reservado, Confidencial ou Secreto -- O/R/C/S
+\FRDitaOpcoes{N}{O}
+% Cria o formulario
+\itaFRD
+
+\end{document}
+% Fim do Documento. O massacre acabou!!! :-)

@@ -1,0 +1,311 @@
+% Capítulo 5 -- Citação e Referências
+
+\section{Citação}
+
+Citação é uma menção no texto, de informações extraídas de outras fontes \cite{ABNT2023}
+e tem como objetivo dar o devido crédito ao autor de uma ideia, respeitando-se os direitos autorais.
+As citações podem ser:
+
+\begin{itemize}
+  \item \textbf{Direta}: Transcrição literal de parte da obra do autor consultado. Ex.: "Deve-se indicar sempre, com método e precisão, toda documentação que serve de base para a pesquisa, assim como ideias e sugestões alheias inseridas no trabalho". \cite[p. 97]{Cervo1978}
+  \item \textbf{Indireta}: Texto baseado na obra do autor consultado. Ex.: \cite{Barras1979} ressalta que, apesar da importância da arte de escrever para a ciência, inúmeros cientistas não têm recebido treinamento neste sentido.
+  \item \textbf{Citação da citação}: Transcrição direta ou indireta de um texto em que não se teve acesso ao original. Ex.: "O homem é precisamente o que ainda não é. O homem não se define pelo que é, mas pelo que deseja ser" \apud{OrtegaGasset1963}[p.~160]{Salvador1977}.
+\end{itemize}
+
+As citações no texto podem seguir o sistema "numérico" ou o sistema "autor-data" \cite{ABNT2023}.
+
+Qualquer que seja o método adotado deve ser seguido consistentemente ao longo de todo o trabalho, permitindo sua correlação na lista de referências. Não são permitidas notas de rodapé nos trabalhos do ITA.
+
+\subsection{Sistema autor-data}
+
+Indica-se o(s) Autor(es) pelo Sobrenome sem as iniciais, seguido do ano da publicação e da página citada, separados por vírgula.
+
+\begin{itemize}
+  \item O autor pode estar dentro ou fora dos parênteses, dependendo se for citado diretamente ou não no texto. Exemplo: Souza e Andrade (2013) estudaram um robô flexível. Robôs flexíveis apresentam graus de liberdade adicionais (Souza; Andrade, 2013). A Figura~4.2 apresenta a Estação Espacial Internacional (NASA, 2011).
+  \item Quando dentro dos parênteses, os sobrenomes dos autores são separados por ponto e vírgula, por exemplo: (Autor1; Autor2; Autor3, 2007, p. 34).
+  \item Citações de mais de um documento do mesmo autor. Exemplo: (Souza; Andrade, 2001, 2011, 2013).
+  \item Citações de mais de um documento de autores diferentes. Exemplo: (Silva, 2003; Costa, 2004; Antunes, 2014).
+  \item Quando houver coincidência de sobrenomes de autores, acrescentam-se as iniciais de seus prenomes: (Barbosa, C., 1958) e (Barbosa, O., 1958). Se mesmo assim existir coincidência, colocam-se os prenomes por extenso: (Barbosa, Cássio, 1965) e (Barbosa, Celso, 1965).
+  \item As citações de diversos documentos do mesmo autor, publicados num mesmo ano, são distinguidas pelo acréscimo de letras minúsculas, em ordem alfabética, após a data e sem espacejamento. Acrescentar as letras após a data, tanto a citação, quanto na referência. Exemplo: a pesquisa apresentou um resultado (Silva, 2010a) e também outro resultado (Silva, 2010b).
+\end{itemize}
+
+\begin{table}[H]
+  \centering
+  \caption{Citação de Autores no texto -- ABNT NBR 10520:2023.}
+  \label{tab:citacao-autores-nbr10520-2023}
+  \begin{tabular}{p{0.20\textwidth}p{0.38\textwidth}p{0.38\textwidth}}
+    \toprule
+    \textbf{Nº de autores} & \textbf{Autor fora de parênteses} & \textbf{Autor (dentro de parênteses)} \\
+    \midrule
+    Um autor & Grant (1996) & (Grant, 1996) \\
+    Dois autores & Zekulin e Sampaio (2010) & (Zekulin; Sampaio, 2010, p. 25) \\
+    Três autores & Halliday, Resnick e Walker (2007, v. 4, p. 223) & (Halliday; Resnick; Walker, 2007, v. 4, p. 223) \\
+    Mais de três autores & Takahashi et al. (1997) & (Takahashi et al., 1997, p. 8) \\
+    Mesmo autor e anos diferentes & Carvalho (1986, 1993, 1996) & (Carvalho, 1986, 1993, 1996) \\
+    Mesmo autor, com publicações em anos diferentes e no mesmo ano & Halkka et al. (1973, 1975a, 1975b) & (Halkka et al., 1973, 1975a, 1975b) \\
+    Vários autores, mencionados simultaneamente são separados por ponto e vírgula (\;) & [... ] a mesma conclusão foi feita por Cross (2000); Knox (1986); Mezirow (2001) e Ribeiro (1989) & --- \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Sistema numérico}
+
+Neste sistema, a indicação da fonte é feita por uma numeração única e consecutiva, em algarismos arábicos, remetendo à lista de referências ao final do trabalho na mesma ordem em que aparecem no texto. A fonte consultada, quando repetida, deve ser representada pela mesma numeração.
+
+No texto:
+
+Estabilidade robusta significa que o controlador garanta estabilidade interna todos os sistemas de um grupo que inclui o sistema da planta atual$^{12}$.
+
+Na lista de referências:
+
+$^{12}$ OGATA, K. \textit{Engenharia de controle moderno}. Tradução I. J. Albuquerque. 2. ed. Rio de Janeiro: Prentice-Hall, 1993. 781 p.
+
+\textit{Nota: Este template utiliza o sistema autor-data por padrão. Para utilizar o sistema numérico, é necessário alterar a opção de estilo do pacote \texttt{biblatex} em \texttt{tese.tex} de \texttt{style=abnt} para \texttt{style=abnt-numeric}.}
+
+\section{Referências}
+
+A Biblioteca oferece aos alunos do ITA o apoio para a normalização das referências. A solicitação desse serviço deve ser com trinta dias de antecedência da entrega da versão preliminar da tese para a Seção de Referência e Informação (BIB-RI), no e-mail bib.ref@ita.br. O arquivo com a lista de referências deverá estar no formato .docx (Word) para possibilitar correções diretamente no arquivo.
+
+A BIB-RI retornará o arquivo com as referências padronizadas no prazo de até trinta dias úteis a partir da data do envio.
+
+\subsection{Autoria}
+
+Indica-se o(s) Autor(es), de modo geral, pelo último \textsc{SOBRENOME}, em maiúsculas, seguido do prenome e outros sobrenomes, abreviados ou não (apenas a letra inicial é em maiúscula).
+
+\begin{itemize}
+  \item Os autores são separados por ponto-e-vírgula, seguido de espaço.
+  \item Referência com mais de 3 autores: convém indicar todos os autores na referência; permite-se que se indique apenas o primeiro autor do texto, seguido da palavra \textit{et al}.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Comparação de referências: manual vs.\ \texttt{\textbackslash fullcite}.}
+\small
+\begin{tabular}{p{0.45\textwidth}|p{0.45\textwidth}}
+\toprule
+\textbf{Manual} & \textbf{Biblatex (\texttt{\textbackslash fullcite})} \\
+\midrule
+HOWARD, N. \textit{Paradoxes of rationality}. Cambridge: MIT Press, 1971. & \fullcite{Howard1971} \\
+\midrule
+DEGARMO, E. P.; BLACK, J. T.; KOHSER, R. A. \textit{Materials and processes in manufacturing}. 9th ed. Hoboken: Wiley, 2003. & \fullcite{Degarmo2003} \\
+\midrule
+ENSSLIN, L. et al. Avaliação do desempenho de empresas terceirizadas com o uso da metodologia multicritério de apoio a decisão: construtivista. \textit{Pesquisa Operacional}, v. 30, n. 1, p. 125-152, jan./abr. 2010. & \fullcite{Ensslin2010} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{itemize}
+  \item Organizador, editor, coordenador, compilador: quando não há autor, e sim um responsável intelectual, entra-se pelo responsável seguido da abreviação que caracteriza o tipo de responsabilidade entre parênteses e sempre no singular, independentemente do número de responsáveis: (org.), (ed.), (coord.), (comp.).
+  \item Autor entidade: as obras de responsabilidade de pessoa jurídica (órgãos governamentais, empresas, associações, congressos, seminários etc.) têm entrada pela forma conhecida ou como se destaca no documento, por extenso ou abreviada (ex.: IBGE, NASA).
+  \item Autoria desconhecida: entrada feita pelo título e a primeira palavra é toda em letras maiúsculas.
+\end{itemize}
+
+\fullciteblock{Waszczyszy2010}
+
+\fullciteblock{USP1993}
+
+\fullciteblock{ITA1958}
+
+\fullciteblock{DiagnosticoEditorial1993}
+
+\subsection{Título e subtítulo}
+
+O título e o subtítulo (se for usado) devem ser reproduzidos tal como figuram no documento, separados por dois-pontos. O subtítulo nas referências não leva destaque.
+
+Em títulos e subtítulos demasiadamente longos, podem-se suprimir as últimas palavras, desde que não seja alterado o sentido. A supressão deve ser indicada por reticências entre colchetes, por exemplo: [\ldots]. Quando o título aparecer em mais de uma língua, registra-se o primeiro. Opcionalmente, registra-se o segundo ou o que estiver em destaque, separando o primeiro pelo sinal de igualdade. Os títulos dos periódicos podem ser abreviados, desde que conste na publicação.
+
+Exemplos:
+
+\fullciteblock{Bitter2001}
+
+\fullciteblock{Tedlow2012}
+
+\fullciteblock{SaoPauloMedicalJournal}
+
+\fullciteblock{Gray2012}
+
+\subsection{Edição}
+
+Quando houver uma indicação de edição, esta deve ser transcrita, utilizando-se abreviaturas dos numerais ordinais e da palavra edição, ambas de forma adotada no idioma do documento. Ex.: 2. ed. (português e espanhol), 2nd ed. (inglês), 2. Aufl. (alemão), 2e ed. (francês) e 2a ed. (italiano). Considerar a versão de documentos eletrônicos como equivalente à edição e transcrevê-la como consta no documento.
+
+\fullciteblock{Astrology1994}
+
+\subsection{Imprenta (Local: editora, data)}
+
+O nome do local (cidade) de publicação deve ser indicado tal como figura no documento. Na ausência do nome da cidade, pode ser indicado o estado ou o país, desde que conste no documento. No caso de homônimos de cidades, acrescenta-se a sigla do estado, do país etc. Ex.: Viçosa, AL / Viçosa, MG / Viçosa, RJ. Quando a cidade não aparece no documento, mas pode ser identificada, indica-se entre colchetes.
+
+\fullciteblock{Ogata1993}
+
+\fullciteblock{LazzariniNeto1994}
+
+Não sendo possível determinar o local, utiliza-se a expressão \textit{sine loco}, abreviada entre colchetes e em itálico: [S.\ l.].
+
+\subsection{Editora}
+
+O nome da Editora ou outra instituição responsável pela publicação deve ser indicado tal como figura no documento, suprimindo-se as palavras que designam a natureza jurídica ou comercial. Quando a editora não puder ser identificada, deve-se indicar expressão \textit{sine nomine}, abreviada, entre colchetes e em itálico: [s.\ n.]. Quando o local e a editora não puderem ser identificados na publicação, utilizam-se ambas as expressões, abreviadas e entre colchetes: [S.\ l.: s.\ n.].
+
+\subsection{Data}
+
+A data é um elemento obrigatório para a referência; sempre deve ser identificada seja da publicação, distribuição, do copirraite, da impressão, da apresentação (depósito) de um trabalho acadêmico, ou outra.
+
+Não identificando nenhuma data de publicação, distribuição, copirraite, impressão etc., deve ser indicado um ano entre colchetes, conforme indicado:
+
+\begin{itemize}
+  \item \mbox{[1971 ou 1972]} um ano ou outro;
+  \item \mbox{[1969?]} ano provável;
+  \item \mbox{[1973]} ano certo, não indicado no item;
+  \item \mbox{[entre 1906 e 1912]} usar intervalos menores de 20 anos;
+  \item \mbox{[ca. 1960]} ano aproximado;
+  \item \mbox{[197-]} década certa;
+  \item \mbox{[197-?]} década provável;
+  \item \mbox{[18--]} século certo;
+  \item \mbox{[18--?]} século provável.
+\end{itemize}
+
+\subsection{Descrição física}
+
+Quanto à paginação, opcionalmente registrar o número total de páginas (ex.: 530 p.). Para referenciar partes de publicações, deve-se indicar os números das folhas ou páginas inicial e final, precedidos da abreviatura f. ou p.; ou indicar o número do volume, precedido de v.; ou indicar o número do capítulo, precedido de cap. Se necessário, indicar outra forma de individualizar a parte referenciada.
+
+Ex.: p. 56--59; cap. 5; v. 1, p. 20--25. Quando o documento for publicado em mais de uma unidade física, ou seja, mais de um volume, indica-se a quantidade de volumes, seguida da abreviatura v.
+
+\fullciteblock{Nussenzveig2002}
+
+\subsection{Trabalhos acadêmicos}
+
+Nas teses, dissertações ou outros trabalhos acadêmicos deve ser indicado o tipo de documento (tese, dissertação, trabalho de conclusão de curso, mestrado profissional etc.), o grau, a vinculação acadêmica, o local e a data da defesa, mencionada na folha de aprovação (se houver).
+
+\fullciteblock{CardosoJunior2014}
+
+\section{Ordenação das referências}
+
+As referências devem ser elaboradas em espaço simples, alinhadas à margem esquerda do texto e separadas entre si por uma linha em branco de espaço simples. As referências dos documentos citados em um trabalho devem ser ordenadas no sistema numérico quando o sistema de citação for numérico ou por ordem alfabética quando o sistema for autor-data. Segue abaixo alguns exemplos de referências bibliográficas de acordo com o tipo de fonte.
+
+\subsection{Artigo de periódico}
+
+AUTOR. Título do artigo. Título do Periódico/``Source'', v. (volume), n. (número) do fascículo, página inicial--página final, mês ano.
+
+\fullciteblock{SusanResiga1988}
+
+\fullciteblock{Cavalcante2000}
+
+\fullciteblock{Denton1999}
+
+\subsection{Eventos: trabalhos apresentados em congressos, seminários, simpósios, workshop}
+
+AUTOR do ARTIGO. Título do artigo: subtítulo. In: NOME DO EVENTO, número, ano, local de realização. Anais [\ldots] (\textit{Proceedings} [\ldots] quando em inglês). Local de publicação (cidade): Editora, data. volume, páginas inicial-final do trabalho, se houver.
+
+\fullciteblock{Bai2001}
+
+BENITTI, F. B. V.; ZIMMERMANN, A. P. Testware: ferramenta de planejamento e execução de casos de teste. In: SEMINÁRIO DE COMPUTAÇÃO, 2007, Blumenau. Anais [\ldots]. Blumenau: Universidade Regional de Blumenau, 2007. p. 63-74.
+
+\fullciteblock{Benitti2007}
+
+\fullciteblock{Luchinsky2009}
+
+\fullciteblock{Gimenes2008}
+
+\fullciteblock{Candido1997}
+
+\fullciteblock{Ribeiro2010}
+
+\subsection{Livros e folhetos}
+
+Os elementos essenciais de uma monografia no todo são: autor(es), título, subtítulo (se houver), edição (se houver), local, editora e data de publicação.
+
+AUTOR. Título: subtítulo. Edição. Local (cidade) de publicação: Editora, data. Número de páginas ou volumes. (Título da Série, volume da série).
+
+\fullciteblock{Franco2004}
+
+\fullciteblock{Knuth1999}
+
+\subsection{Capítulo de livro}
+
+AUTOR DO CAPÍTULO. Título do capítulo. In: AUTOR/EDITOR DO LIVRO. Título: subtítulo do livro. Edição (se houver). Local (Cidade) de publicação: Editora, data. volume, capítulo, páginas inicial-final da parte.
+
+\fullciteblock{Zilio2001}
+
+\fullciteblock{Perrins1983}
+
+\subsection{Documentos de acesso exclusivo em meio eletrônico}
+
+AUTORIA. Título do serviço ou produto. Versão (se houver). Local (cidade) de publicação: editor, data de publicação. Disponível em: indicar endereço eletrônico. Acesso em: dia, mês e ano.
+
+Nota: no caso de arquivos eletrônicos, acrescentar a respectiva extensão à denominação atribuída ao arquivo.
+
+Obs.: para qualquer tipo de referência, as informações acrescidas devem seguir o idioma do texto do trabalho e não do documento referenciado; ou seja, utilize \textit{Available at:} e \textit{Accessed on:} apenas no caso de estar redigindo o seu trabalho acadêmico em inglês.
+
+\fullciteblock{Gaines1995}
+
+\fullciteblock{ForecastInternational2006}
+
+\subsection{Trabalhos acadêmicos, monografias, teses, dissertações, TG}
+
+AUTOR. Título: subtítulo (se houver). Ano do depósito. Tipo de trabalho (Grau e Curso) -- Nome da Universidade, Cidade, data de apresentação ou defesa. Número de páginas (opcional).
+
+\fullciteblock{Naves2006}
+
+\fullciteblock{Mizioka2009}
+
+\fullciteblock{Sharma2006}
+
+\subsection{Artigo de jornal}
+
+AUTOR. Título do artigo e subtítulo (se houver). Título do Jornal, subtítulo do jornal (se houver). Local da publicação, numeração do ano e/ou volume, número (se houver), data de publicação, seção, caderno ou parte do jornal e a paginação correspondente. Quando não houver seção, caderno ou parte, a paginação do artigo ou matéria precede a data.
+
+\fullciteblock{Leal1999}
+
+\fullciteblock{Azevedo1985}
+
+\subsection{Normas técnicas}
+
+AUTORIDADE. Número da norma: título e subtítulo. Local da publicação (cidade): Editor, data. Número de páginas (opcional).
+
+\fullciteblock{MIL1797}
+
+\fullciteblock{ABNTNBR14724}
+
+\fullciteblock{ICAO2007}
+
+\subsection{Patentes}
+
+INVENTOR (Autor). Título da invenção na língua original. Nome do depositante e do procurador (se houver). Número da patente, datas (de depósito e de concessão, se houver). Indicação da publicação onde foi citada a patente, quando for o caso.
+
+\fullciteblock{Wischoff1995}
+
+\fullciteblock{Bertazzoli2006}
+
+\subsection{Programa de computador}
+
+AUTOR. Título: subtítulo (se houver). Versão. Local de publicação: Editora, data da publicação. Tipo de mídia. Descrição física. Notas opcionalmente para melhor explicar o material consultado.
+
+\fullciteblock{Microsoft1995}
+
+\subsection{Relatório técnico}
+
+AUTOR. Título: subtítulo (se houver). Edição. Local (cidade) de publicação: Editora, data. (Série, v.).
+
+\fullciteblock{Allison1993}
+
+\fullciteblock{Dunham1998}
+
+\subsection{Título do periódico}
+
+TÍTULO DO PERIÓDICO. Local de publicação (cidade): Editora, datas de início e de encerramento da publicação (se houver), e ISSN (se houver).
+
+\fullciteblock{RevistaBrasileiraGeografia}
+
+\fullciteblock{SaoPauloMedicalJournal}
+
+\subsection{Citação de citação}
+
+Todo esforço deve ser empreendido para se consultar o documento original. Entretanto, nem sempre é possível o acesso a certos textos. Nesse caso, apesar de não ser a maneira recomendada, pode-se reproduzir informação já citada por outros autores, cujos documentos tenham sido efetivamente consultados. Pode-se adotar o seguinte procedimento:
+
+No texto, citar o sobrenome do autor do documento não consultado, seguido das expressões: citado por, \textit{apud}, conforme ou segundo, e o sobrenome do autor do documento efetivamente consultado. Na listagem de referência, elencar somente a fonte consultada.
+
+Exemplo:
+
+No texto: Marinho (citado por Marconi e Lakatos, 1982) apresenta a formulação do problema como uma fase de pesquisa que, sendo bem delimitado, simplifica e facilita a maneira de conduzir a investigação.
+
+Na lista de referências:
+
+\fullciteblock{MarconiLakatos1982}

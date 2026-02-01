@@ -1,0 +1,38 @@
+# Diretório de saída (sincronizado com Makefile)
+target/
+
+# Claude Code
+.claude/
+CLAUDE.md
+
+# Arquivos auxiliares LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.idx
+*.ilg
+*.ind
+*.glo
+*.gls
+*.glg
+*.acn
+*.acr
+*.alg
+
+# Arquivos de backup
+*.bak
+*~
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db

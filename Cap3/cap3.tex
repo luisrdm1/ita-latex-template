@@ -1,0 +1,118 @@
+Este capítulo descreve os materiais, equipamentos e procedimentos utilizados no desenvolvimento do trabalho. A metodologia deve ser descrita com detalhes suficientes para permitir a reprodução do estudo por outros pesquisadores.
+
+\section{Materiais}
+
+A descrição dos materiais deve incluir especificações técnicas, fabricantes e, quando relevante, número de lote ou pureza. A Tabela~\ref{tab:materiais} apresenta um exemplo de organização dessas informações.
+
+\begin{table}[ht]
+\centering
+\caption{Materiais utilizados no experimento.}
+\label{tab:materiais}
+\begin{tabular}{llll}
+\toprule
+Material & Especificação & Fabricante & Pureza \\
+\midrule
+Alumínio 6061-T6 & Barra $\varnothing 25 \times 100$ mm & Alcoa & -- \\
+Aço AISI 304 & Chapa 2 mm & Gerdau & -- \\
+Acetona & P.A. & Sigma-Aldrich & 99,5\% \\
+Resina epóxi & Araldite LY 1564 & Huntsman & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Equipamentos}
+
+Os equipamentos devem ser descritos com modelo, fabricante e características relevantes para o experimento. Quando aplicável, incluir informações sobre calibração e incerteza de medição.
+
+\begin{enumerate}
+    \item Máquina universal de ensaios Instron 5569, capacidade 50 kN, resolução 0,1 N;
+    \item Termopar tipo K, faixa $-200$ a $1260\,^{\circ}$C, incerteza $\pm 2,2\,^{\circ}$C;
+    \item Balança analítica Shimadzu AUW220D, resolução 0,01 mg; e
+    \item Microscópio eletrônico de varredura JEOL JSM-6010LA.
+\end{enumerate}
+
+\section{Procedimento Experimental}
+
+O procedimento deve ser descrito de forma clara e sequencial. Fluxogramas são úteis para visualizar as etapas do processo, como ilustrado na Figura~\ref{fig:fluxograma}.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+    node distance=1.4cm,
+    startstop/.style={rectangle, rounded corners, minimum width=3.5cm, minimum height=0.9cm, text centered, draw=black, fill=gray!20},
+    process/.style={rectangle, minimum width=3.5cm, minimum height=0.9cm, text centered, draw=black, fill=blue!15},
+    decision/.style={diamond, minimum width=2.8cm, minimum height=0.9cm, text centered, draw=black, fill=orange!20, aspect=2.2},
+    arrow/.style={thick,->,>=stealth}
+]
+    \node (start) [startstop] {Início};
+    \node (prep) [process, below=of start] {Preparação das amostras};
+    \node (ensaio) [process, below=of prep] {Realização do ensaio};
+    \node (coleta) [process, below=of ensaio] {Coleta de dados};
+    \node (analise) [decision, below=0.8cm of coleta] {Dados válidos?};
+    \node (proc) [process, below=0.8cm of analise] {Processamento};
+    \node (end) [startstop, below=of proc] {Fim};
+
+    \draw [arrow] (start) -- (prep);
+    \draw [arrow] (prep) -- (ensaio);
+    \draw [arrow] (ensaio) -- (coleta);
+    \draw [arrow] (coleta) -- (analise);
+    \draw [arrow] (analise.south) -- node[right] {Sim} (proc.north);
+    \draw [arrow] (analise.west) -- ++(-1.8,0) node[above, pos=0.5] {Não} |- (ensaio.west);
+    \draw [arrow] (proc) -- (end);
+\end{tikzpicture}
+\caption{Fluxograma do procedimento experimental.}
+\label{fig:fluxograma}
+\end{figure}
+
+\subsection{Preparação das Amostras}
+
+Descrever o processo de preparação, incluindo:
+\begin{enumerate}
+    \item dimensões e geometria dos corpos de prova;
+    \item processos de usinagem ou conformação;
+    \item tratamentos térmicos ou superficiais; e
+    \item condições de armazenamento.
+\end{enumerate}
+
+\subsection{Condições de Ensaio}
+
+As condições ambientais e parâmetros de ensaio devem ser documentados:
+\begin{itemize}
+    \item Temperatura ambiente: $(23 \pm 2)\,^{\circ}$C
+    \item Umidade relativa: $(50 \pm 10)$\%
+    \item Velocidade de carregamento: 1 mm/min
+    \item Taxa de aquisição: 10 Hz
+\end{itemize}
+
+\section{Ferramentas Computacionais}
+
+O software utilizado para análise e simulação deve ser documentado, incluindo versão e configurações relevantes. A Tabela~\ref{tab:software} apresenta as ferramentas utilizadas neste trabalho.
+
+\begin{table}[ht]
+\centering
+\caption{Ferramentas computacionais utilizadas.}
+\label{tab:software}
+\begin{tabular}{lll}
+\toprule
+Ferramenta & Versão & Aplicação \\
+\midrule
+MATLAB & R2024a & Processamento de sinais \\
+ANSYS Mechanical & 2024 R1 & Análise por elementos finitos \\
+Python & 3.12 & Scripts de automação \\
+\LaTeX{} & TeX Live 2024 & Redação do documento \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Tratamento Estatístico}
+
+Quando aplicável, descrever os métodos estatísticos utilizados para análise dos dados:
+
+\begin{enumerate}
+    \item número de repetições por condição experimental;
+    \item testes estatísticos aplicados (ANOVA, teste t, etc.);
+    \item nível de significância adotado; e
+    \item software utilizado para análise estatística.
+\end{enumerate}
+
+Os resultados são tipicamente expressos como média $\pm$ desvio padrão ou com intervalo de confiança de 95\%.

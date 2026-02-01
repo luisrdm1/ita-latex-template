@@ -1,0 +1,179 @@
+\section{Requisitos e geração do arquivo final (PDF)}
+
+A versão final da dissertação ou tese será entregue \textbf{exclusivamente em formato digital (PDF)}, composta por um \textbf{PDF mestre} contendo todo o conteúdo do trabalho e os documentos obrigatórios. Quando aplicável, também deve ser entregue uma \textbf{cópia protegida} (Seção~\ref{sec:cap6-protecao}).
+
+\subsection{Preparação do documento-fonte (recomendado)}
+
+\begin{enumerate}
+    \item Antes da geração do PDF, o arquivo de origem (Word/LibreOffice/\LaTeX{} etc.) deve estar \textbf{estruturado com níveis de títulos} (ex.: Título 1, Título 2, Título 3\ldots), de modo a permitir a \textbf{criação automática de marcadores (bookmarks)}.
+    \item Atualize o \textbf{Sumário} no documento-fonte e revise se todas as seções/subseções estão corretamente listadas.
+\end{enumerate}
+
+\subsection{Geração do PDF mestre}
+
+\begin{enumerate}
+    \item Gere o PDF diretamente a partir do documento-fonte, preferencialmente usando uma opção de exportação que \textbf{crie marcadores a partir dos títulos/estrutura}.
+
+    \item Converta e incorpore ao PDF mestre:
+    \begin{itemize}
+        \item a \textbf{Folha de Registro do Documento} (quando fornecida em arquivo digital);
+        \item eventuais páginas/elementos obrigatórios (pré-textuais e pós-textuais).
+    \end{itemize}
+
+    \item \textbf{Anexos não disponíveis em meio digital} devem ser digitalizados e inseridos no PDF mestre. Para anexos textuais, recomenda-se aplicar \ac{OCR} para permitir pesquisa e seleção de texto, sempre que tecnicamente viável.
+
+    \item Substitua a \textbf{Folha de Rosto} (ou página equivalente, quando aplicável) pela \textbf{versão assinada} (escaneada com qualidade adequada ou assinada digitalmente conforme regras institucionais).
+
+    \item Ao final, revise a integridade do PDF mestre:
+    \begin{itemize}
+        \item ordem das páginas;
+        \item qualidade de leitura de páginas escaneadas (sem cortes, orientação correta);
+        \item consistência do Sumário e dos marcadores (ver Seção~\ref{sec:cap6-bookmarks});
+        \item metadados básicos (título, autor, ano), quando aplicável.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Ferramentas aceitas (exemplos)}
+
+São aceitas ferramentas que permitam gerar e editar PDF \textbf{localmente} (sem \textit{upload}), incluindo, por exemplo:
+
+\begin{itemize}
+    \item \textbf{Freeware (\ac{GUI})}: PDF24 Creator (Windows).
+    \item \textbf{\ac{FOSS} (\ac{GUI} local / auto-hospedável)}: Stirling PDF (uso local).
+    \item \textbf{\ac{FOSS} (\ac{CLI} / multiplataforma)}: \texttt{qpdf}, \texttt{pdftk} (ou \texttt{pdftk-java}).
+    \item \textbf{Assinatura digital (freeware/\ac{FOSS})}: JSignPdf (Java).
+\end{itemize}
+
+\begin{quote}
+Recomenda-se priorizar ferramentas locais/offline, sobretudo quando o documento contiver dados pessoais ou informações sensíveis.
+\end{quote}
+
+\subsection{Nome do arquivo}
+
+O arquivo final deve ser nomeado como:
+
+\begin{center}
+\texttt{DM/TD999\_YYYY.pdf}
+\end{center}
+
+onde:
+
+\begin{itemize}
+    \item \textbf{DM} = Dissertação de Mestrado; \textbf{TD} = Tese de Doutorado;
+    \item \textbf{999} = número de registro atribuído;
+    \item \textbf{YYYY} = ano da defesa.
+\end{itemize}
+
+\section{Marcadores (bookmarks) no PDF}\label{sec:cap6-bookmarks}
+
+\subsection{Requisitos mínimos de marcadores}
+
+No PDF mestre devem existir marcadores para:
+
+\begin{enumerate}
+    \item cada elemento \textbf{pré-textual} (ex.: folha de rosto, resumo, \textit{abstract}, listas etc., conforme aplicável);
+    \item o \textbf{Sumário}, incluindo \textbf{todas as seções e subseções} nele indicadas;
+    \item a \textbf{Folha de Registro do Documento};
+    \item \textbf{Anexos/Apêndices}, quando existirem.
+\end{enumerate}
+
+\subsection{Método preferencial (automático e reprodutível)}
+
+\begin{enumerate}
+    \item Estruture o documento-fonte com estilos de título (níveis hierárquicos).
+    \item Em \LaTeX{}, use o pacote \texttt{hyperref} para gerar marcadores automaticamente (ex.: inclua \texttt{hyperref} no preâmbulo) e garanta que as seções/subseções estejam bem estruturadas.
+    \item Ao exportar para PDF, habilite a opção equivalente a ``\textbf{criar marcadores a partir de títulos/estrutura}''.
+    \item Após exportar, \textbf{valide}:
+    \begin{itemize}
+        \item se todos os itens do Sumário possuem marcador correspondente;
+        \item se a hierarquia (pai/filho) reflete o nível de seção/subseção;
+        \item se cada marcador aponta para a página correta.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Ajuste manual (quando necessário)}
+
+Quando a exportação automática não produzir marcadores adequados, use um editor de PDF para:
+
+\begin{itemize}
+    \item renomear marcadores;
+    \item corrigir destinos;
+    \item ajustar a hierarquia (aninhamento);
+    \item inserir marcadores faltantes.
+\end{itemize}
+
+\noindent\textbf{Critério de aceitação:} ao clicar em cada marcador, o leitor deve ser direcionado imediatamente ao trecho correspondente, com navegação clara.
+
+\section{Proteção do documento e cópias de distribuição}\label{sec:cap6-protecao}
+
+\subsection{Princípios}
+
+\begin{enumerate}
+    \item A proteção pode ter finalidades distintas:
+    \begin{itemize}
+        \item \textbf{Confidencialidade}: exigir senha para abrir o PDF;
+        \item \textbf{Restrição de permissões}: desencorajar edição/impressão/cópia (sem impedir absolutamente);
+        \item \textbf{Autenticidade/integridade}: assinatura digital para evidenciar alterações.
+    \end{itemize}
+
+    \item Quando houver exigência de compatibilidade com \textbf{PDF/A} ou com repositórios que rejeitam criptografia, recomenda-se:
+    \begin{itemize}
+        \item manter o \textbf{PDF mestre sem criptografia}; e
+        \item gerar \textbf{uma cópia protegida separada}, se a norma exigir restrição.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Ferramentas recomendadas (\ac{FOSS}/freeware)}
+
+\begin{itemize}
+    \item \textbf{\texttt{qpdf} (\ac{FOSS}, \ac{CLI})}: criptografia AES-256 e permissões; ideal para \textit{workflow} reprodutível.
+    \item \textbf{\texttt{pdftk} / \texttt{pdftk-java} (\ac{FOSS}/free, \ac{CLI})}: permissões/criptografia simples.
+    \item \textbf{PDF24 Creator (freeware, \ac{GUI} Windows)}: aplicar senha/permissões e montar/mesclar PDFs localmente.
+    \item \textbf{Stirling PDF (\ac{FOSS})}: operações de PDF via interface local.
+    \item \textbf{JSignPdf (freeware/\ac{FOSS})}: assinatura digital.
+\end{itemize}
+
+\subsection{Exemplos por linha de comando}
+
+\subsubsection*{Criptografar exigindo senha para abrir (confidencialidade)}
+
+\textbf{qpdf (AES-256):}
+
+\begin{Verbatim}[breaklines, breakanywhere, numbers=left]
+qpdf --encrypt "SENHA_ABRIR" "SENHA_DONO" 256 -- input.pdf output_protegido.pdf
+\end{Verbatim}
+
+\subsubsection*{Restringir impressão/edição/cópia (permissões)}
+
+\textbf{qpdf (sem senha para abrir; com senha de permissões):}
+
+\begin{Verbatim}[breaklines, breakanywhere, numbers=left]
+qpdf --encrypt "" "SENHA_DONO" 256 --print=none --modify=none --extract=n --annotate=n --assemble=n --form=n -- input.pdf output_restrito.pdf
+\end{Verbatim}
+
+\textbf{pdftk (exemplo de permissões):}
+
+\begin{Verbatim}[breaklines, breakanywhere, numbers=left]
+pdftk input.pdf output restrito.pdf owner_pw SENHA_DONO user_pw "" allow DegradedPrinting
+\end{Verbatim}
+
+\subsubsection*{\ac{OCR} em anexos escaneados (para PDF pesquisável)}
+
+Se você estiver no Windows e preferir usar a suíte do PDF24:
+
+\begin{Verbatim}[breaklines, breakanywhere, numbers=left]
+pdf24-Ocr.exe -outputFile saida.pdf -language por -dpi 300 "entrada.pdf"
+\end{Verbatim}
+
+\noindent (Alternativamente, é possível aplicar \ac{OCR} via outras ferramentas locais conforme disponibilidade institucional.)
+
+\subsection{Checklist de entrega (sugerido)}
+
+\begin{itemize}
+    \item[$\Box$] PDF mestre completo (todas as páginas e anexos) e na ordem final
+    \item[$\Box$] Folha assinada corretamente inserida
+    \item[$\Box$] Marcadores completos e testados (pré-textuais, Sumário com seções e subseções, Folha de Registro)
+    \item[$\Box$] Anexos escaneados legíveis; \ac{OCR} aplicado quando praticável
+    \item[$\Box$] Arquivo nomeado como \texttt{DM/TD999\_YYYY.pdf}
+    \item[$\Box$] (Se exigido) cópia protegida gerada e verificada em um leitor de PDF
+\end{itemize}

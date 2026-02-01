@@ -1,0 +1,105 @@
+Após anos de dedicação ao curso, o aluno se depara com o desafio de confeccionar sua dissertação ou tese. Este documento visa orientar esse processo, esclarecendo as normas e boas práticas para a produção de trabalhos acadêmicos no \ac{ITA}.
+
+Os modelos de trabalhos acadêmicos do \ac{ITA} seguem as normas da \ac{ABNT}, em especial a NBR 14724 (trabalhos acadêmicos) e a NBR 6023 (referências bibliográficas). Embora tais normas utilizem terminologia específica da área de documentação, este template busca simplificar sua aplicação através de formatação automatizada.
+
+\section{Por que \LaTeX?}
+
+O \LaTeX{} é um sistema de preparação de documentos amplamente utilizado na comunidade acadêmica e científica. Suas principais vantagens incluem:
+
+\begin{enumerate}
+    \item Qualidade tipográfica superior, especialmente para expressões matemáticas como $\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}$;
+    \item Gerenciamento automático de referências cruzadas, numeração de figuras, tabelas e equações;
+    \item Formatação consistente em todo o documento;
+    \item Separação entre conteúdo e apresentação, permitindo que o autor foque no texto;
+    \item Controle de versão facilitado por ser baseado em texto puro; e
+    \item Ampla disponibilidade de pacotes para necessidades específicas.
+\end{enumerate}
+
+Este template utiliza o sistema Bib\LaTeX{} com \textit{backend} Biber para gerenciamento de referências bibliográficas, garantindo conformidade com as normas ABNT vigentes e oferecendo recursos avançados como \textit{backref} (indicação das páginas onde cada referência é citada).
+
+\section{Tipos de Trabalhos Acadêmicos}
+
+Este template atende aos seguintes tipos de trabalhos acadêmicos do \ac{ITA}:
+
+\begin{enumerate}
+    \item Trabalho de Graduação, para obtenção do diploma de Engenheiro;
+    \item Dissertação de Mestrado, para obtenção do título de Mestre em Ciências;
+    \item Dissertação de Mestrado Profissional, para obtenção do título de Mestre; e
+    \item Tese de Doutorado, para obtenção do título de Doutor em Ciências.
+\end{enumerate}
+
+A configuração do tipo de documento é feita através das opções da classe, como \texttt{msc} para mestrado, \texttt{dsc} para doutorado, ou \texttt{tg} para trabalho de graduação.
+
+\section{Estrutura do Documento}
+
+A apresentação do texto deve obedecer à ordem dos elementos descritos na Tabela~\ref{tab:ordem-apresentacao}, conforme a ABNT NBR 14724.
+
+\begin{table}[htbp]
+\centering
+\caption{Ordem de apresentação da Dissertação ou Tese.}
+\label{tab:ordem-apresentacao}
+\begin{tabular}{p{2.5cm}p{7.3cm}p{2.2cm}p{2.2cm}}
+\toprule
+Elemento & Estrutura (sequencial) & Versão preliminar & Versão final \\
+\midrule
+\multirow{15}{*}{Pré-textuais} & Capa & obrigatório & obrigatório \\
+ & Folha de rosto & obrigatório & obrigatório \\
+ & Verso da folha de rosto & não colocar & obrigatório \\
+ & Folha da banca & obrigatório & obrigatório \\
+ & Dedicatória & opcional & opcional \\
+ & Agradecimentos & opcional & opcional \\
+ & Epígrafe & opcional & opcional \\
+ & Resumo & obrigatório & obrigatório \\
+ & Abstract & obrigatório & obrigatório \\
+ & Lista de Figuras & opcional & opcional \\
+ & Lista de Tabelas & opcional & opcional \\
+ & Lista de Abreviaturas e Siglas & opcional & opcional \\
+ & Lista de Símbolos & opcional & opcional \\
+ & Sumário & obrigatório & obrigatório \\
+\midrule
+\multirow{3}{*}{Textuais} & Introdução & obrigatório & obrigatório \\
+ & Desenvolvimento & obrigatório & obrigatório \\
+ & Conclusão & obrigatório & obrigatório \\
+\midrule
+\multirow{5}{*}{Pós-textuais} & Referências & obrigatório & obrigatório \\
+ & Apêndice(s) & opcional & opcional \\
+ & Anexo(s) & opcional & opcional \\
+ & Glossário & opcional & opcional \\
+ & Folha de Registro do Documento & não colocar & obrigatório \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Ao contrário da versão preliminar, na versão final devem ser incorporados os elementos ``Verso da folha de rosto'' e ``Folha de Registro do Documento''. A ``Folha de Registro do Documento'' não é um item da ABNT e sim um documento necessário para atender a NPA-ITA-011B:2023.
+
+Tanto o Resumo quanto o Abstract são itens obrigatórios, independentemente se o texto seja escrito em português ou inglês.
+
+\section{Estrutura da Introdução}
+
+A introdução de uma dissertação ou tese deve conter os seguintes elementos:
+
+\begin{enumerate}
+    \item contextualização do tema e motivação para o estudo;
+    \item revisão bibliográfica sucinta, situando o trabalho no estado da arte;
+    \item definição clara dos objetivos (geral e específicos);
+    \item no caso de doutorado, descrição das contribuições originais; e
+    \item descrição da metodologia e organização dos capítulos.
+\end{enumerate}
+
+\section{Organização deste Documento}
+
+Este documento está organizado da seguinte forma:
+
+O Capítulo 2 apresenta orientações sobre revisão bibliográfica e demonstra o uso de citações e figuras.
+
+O Capítulo 3 exemplifica um capítulo de Metodologia, comum em dissertações e teses.
+
+O Capítulo 4 aborda aspectos de formatação, incluindo margens, fontes, espaçamento e paginação conforme as normas ABNT.
+
+O Capítulo 5 trata da elaboração de citações e referências bibliográficas, demonstrando os diversos tipos de fontes e suas formatações.
+
+O Capítulo 6 orienta sobre a confecção da versão final em mídia digital para depósito na biblioteca.
+
+O Capítulo 7 explica o preenchimento da Folha de Registro do Documento.
+
+O Capítulo 8 apresenta as considerações finais.
